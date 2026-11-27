@@ -1,0 +1,90 @@
+/* Based on the CPSC 20000 instructor-provided starter CSS. */
+:root {
+  --background: #ffffff;
+  --surface: #f3f6f9;
+  --text: #17212b;
+  --muted: #425466;
+  --primary: #0b3d66;
+  --link: #005ea8;
+  --focus: #ffbf47;
+  --border: #c7d0d9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+.container { width: min(92%, 70rem); margin-inline: auto; }
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  transform: translateY(calc(-100% - 1rem));
+  background: #ffffff;
+  color: #000000;
+  padding: 0.75rem 1rem;
+  z-index: 1000;
+}
+.skip-link:focus { transform: none; }
+.site-header {
+  background: var(--primary);
+  color: #ffffff;
+  padding: 3.5rem 0 2rem;
+}
+.eyebrow { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+h1 { font-size: clamp(2.4rem, 7vw, 4.5rem); line-height: 1.1; margin: 0.25rem 0; }
+.tagline { max-width: 48rem; font-size: 1.25rem; }
+nav ul, .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+nav a { color: #ffffff; font-weight: 700; display: inline-block; padding-block: 0.2rem; }
+a { color: var(--link); text-decoration-thickness: 0.12em; text-underline-offset: 0.16em; overflow-wrap: anywhere; }
+a:hover { text-decoration-thickness: 0.2em; }
+a:focus-visible, main:focus-visible {
+  outline: 0.2rem solid var(--primary);
+  outline-offset: 0.2rem;
+  box-shadow: 0 0 0 0.2rem var(--focus);
+}
+nav a:focus-visible { outline-color: var(--focus); box-shadow: none; }
+main { padding-block: 2rem 4rem; }
+section { padding-block: 1.5rem; }
+section + section { border-top: 1px solid var(--border); }
+h2 { color: var(--primary); font-size: 1.8rem; line-height: 1.3; margin: 0 0 0.75rem; }
+h3 { font-size: 1.25rem; line-height: 1.4; margin: 0 0 0.25rem; }
+p { max-width: 75ch; overflow-wrap: break-word; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+.card + .card { margin-top: 1rem; }
+.card p:last-child { margin-bottom: 0; }
+.project-label { color: var(--muted); font-size: 0.95rem; margin-top: 0; }
+.tag-list li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  max-width: 100%;
+}
+footer { background: var(--surface); border-top: 1px solid var(--border); padding: 1.25rem 0; }
+footer p { color: var(--muted); }
+@media (max-width: 38rem) {
+  body { font-size: 1rem; }
+  .site-header { padding-top: 2.5rem; }
+  nav ul { display: block; }
+  nav li { margin-block: 0.65rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
